@@ -22,9 +22,9 @@ const buildWebpack = (options: BuildOptions): webpack.Configuration => {
         module: {
             rules: buildLoaders(options)
         },
-        resolve: buildResolvers(),
-        devtool: isDev && 'inline-source-map',
+        resolve: buildResolvers(options),
         devServer: buildDevServer(options),
+        devtool: isDev && 'inline-source-map',
     }
 }
 

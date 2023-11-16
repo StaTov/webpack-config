@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
 import webpack, { Configuration } from "webpack";
 import { BuildOptions } from "./types/buildTypes";
 
@@ -10,7 +11,10 @@ const buildPlugins = ({ mode, paths }: BuildOptions): Configuration['plugins'] =
     const isProd = mode === 'production';
 
     const plugins: Configuration['plugins'] = [
-        new HtmlWebpackPlugin({ template: paths.html })
+        new HtmlWebpackPlugin({
+            template: paths.html,
+            favicon: path.resolve(paths.public, 'favicon.ico')
+        })
     ]
 
     if (isDev) {

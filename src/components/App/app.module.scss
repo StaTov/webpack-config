@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .button {
     color: white;
     font-size: 30px;
@@ -9,5 +15,4 @@
     font-size: 40px;
     color: red;
     padding: 20px;
-    background-color: black;
 }

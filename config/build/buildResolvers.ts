@@ -1,8 +1,12 @@
 import { Configuration } from "webpack";
+import { BuildOptions } from "./types/buildTypes";
 
-const buildResolvers = (): Configuration['resolve'] => {
+const buildResolvers = ({paths}: BuildOptions): Configuration['resolve'] => {
     return {
         extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            '@': paths.scr
+        }
     }
 }
 

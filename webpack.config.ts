@@ -11,14 +11,18 @@ interface EnvVariables {
 const paths: BuildPath = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: path.resolve(__dirname, 'build'),
-    html: path.resolve(__dirname, 'public', 'index.html')
+    html: path.resolve(__dirname, 'public', 'index.html'),
+    scr: path.resolve(__dirname, 'src'),
+    public: path.resolve(__dirname, 'public')
 }
 
 export default (env: EnvVariables) => {
-    const config: webpack.Configuration = buildWebpack({
-        mode: env.mode ?? 'development',
-        port: env.port ?? 3000,
-        paths
-    });
+    const config: webpack.Configuration = buildWebpack(
+        {
+            mode: env.mode ?? 'development',
+            port: env.port ?? 3000,
+            paths
+        }
+    );
     return config;
 }
